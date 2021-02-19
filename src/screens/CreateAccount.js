@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, CheckBox } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+
 function CreateAccount() {
 
     const [isSelected, setSelection] = useState(false);
