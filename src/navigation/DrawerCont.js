@@ -2,8 +2,6 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch, Linking } from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
-import logo from '../screens/logo.jpg'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 export function DrawerContent(props) {
@@ -15,7 +13,7 @@ export function DrawerContent(props) {
                     <View style={styles.userInfoSection}>
                         <View style={{ flexDirection: 'row', marginTop: 15 }}>
                             <Avatar.Image
-                                // source={require('../images/signin.png')}
+                                source={{ uri: 'https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66df14d32.3051789815374598219884.jpg' }}
                                 size={60}
                             />
                         </View>
@@ -23,17 +21,50 @@ export function DrawerContent(props) {
 
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
-                            icon={({ color, size }) => (
+                          icon={({ color, size }) => (
                                 <Icon
                                     name="home-outline"
                                     color={color}
                                     size={size}
                                 />
                             )}
-                            label="SplashScreen"
-                            onPress={() => { props.navigation.navigate('SplashScreen') }}
+                            label="BottomNav"
+                            onPress={() => { props.navigation.navigate('BottomNav') }}
                         />
 
+                        <DrawerItem
+                          icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Privacy Policy"
+                            onPress={() => { props.navigation.navigate('Privacy Policy') }}
+                        />
+                        <DrawerItem
+                          icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Contact Us"
+                            onPress={() => { props.navigation.navigate('Contact Us') }}
+                        />
+                        <DrawerItem
+                          icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
+                                />
+                            )}
+                            label="Logout"
+                            onPress={() => { props.navigation.navigate('Logout') }}
+                        />
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>

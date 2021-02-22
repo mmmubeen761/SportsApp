@@ -1,11 +1,12 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
+import React,{useState} from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView,Picker } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import Slider from '@react-native-community/slider';
 import { Slider } from 'react-native';
 
 
-function Contact() {
+function Contact(props) {
+    const [selectedValue, setSelectedValue] = useState("Athletes/Individual");
 
     return (
         <>
@@ -14,7 +15,7 @@ function Contact() {
                 <View style={styles.container}>
                     <View style={styles.setting}>
                         <View style={styles.header}>
-                            <FontAwesome
+                            <FontAwesome  onPress={()=>props.navigation.goBack()}
                                 style={{ textAlign: 'right', paddingRight: 20, paddingTop: 20 }}
                                 name="close"
                                 color="black"
@@ -24,6 +25,17 @@ function Contact() {
                     </Text>
                         </View>
                         <View style={styles.settingtext}>
+                        <View style={{borderWidth:1, margin:10,borderRadius:5,backgroundColor:'#ededed'}}>
+                                <Picker
+                                    mode={'dropdown'}
+                                    selectedValue={selectedValue}
+                                    style={styles.textInput2}
+                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                                >
+                                    <Picker.Item label="Athletes/Individual" value="Athletes/Individual" />
+                                    <Picker.Item label="Business/Organization" value="Business/Organization" />
+                                </Picker>
+                            </View>
                             <TextInput
                                 placeholder="Contact Name"
                                 placeholderTextColor="black"
@@ -165,7 +177,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        backgroundColor: "#1c4485",
+        backgroundColor: "#0273a3",
         padding: 15,
         margin: 20,
         borderRadius: 5

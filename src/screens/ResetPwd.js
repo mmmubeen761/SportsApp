@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-function ResetPwd() {
+function ResetPwd(props) {
 
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.setting}>
                     <View style={styles.header}>
-                        <FontAwesome
+                        <FontAwesome onPress={()=>props.navigation.navigate('Login')}
                             style={{ textAlign: 'right', paddingRight: 20, paddingTop: 20 }}
                             name="close"
                             color="black"
@@ -28,7 +28,7 @@ function ResetPwd() {
                             autoCapitalize="none"
                         />
                     </View>
-                        <TouchableOpacity
+                        <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}
                             style={styles.button}
                         >
                             <Text style={{color:'white'}}>RESET</Text>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        backgroundColor: "#1c4485",
+        backgroundColor: "#0273a3",
         padding: 15,
         margin:20,
         borderRadius:5

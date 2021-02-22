@@ -9,21 +9,18 @@ import { Dimensions } from 'react-native';
 
 const ENTRIES1 = [
     {
-        illustration: 'https://timesofindia.indiatimes.com/thumb/msid-71008133,width-1200,height-900,resizemode-4/.jpg',
+        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonn.png?alt=media&token=a403ed09-695b-403d-8430-6cb257d5ab70',
     },
     {
-        illustration: 'https://media.istockphoto.com/photos/sports-balls-on-the-field-with-yard-line-soccer-ball-american-and-picture-id942206100?k=6&m=942206100&s=612x612&w=0&h=3e7uXynT9d_aCT4qVmJsfcmkd53DpqMiw_ZCUKi9smY=',
+        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonboarding2.png?alt=media&token=2bcfad94-a752-47d5-96ca-8fe6f525270f',
     },
     {
-        illustration: 'https://www.verywellmind.com/thmb/3mDp5LR4gun1bodKa_9-VKTEnzI=/2578x2578/smart/filters:no_upscale()/GettyImages-463029351-56990fc23df78cafda900169.jpg',
+        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonboarding3.png?alt=media&token=62e7a104-172a-4058-a417-b75642220797',
     },
-    {
-        illustration: 'https://www.verywellhealth.com/thmb/7L4I0NZ_fi0IRAGvwpxi387pK7U=/1067x1067/smart/filters:no_upscale()/GettyImages-495170925-5a171bc747c26600371d399d.jpg',
-    }
 ];
 const { width: screenWidth } = Dimensions.get('window');
 
-function GetStartedScreen1() {
+function GetStartedScreen1(props) {
 
     const [isSelected, setSelection] = useState(false);
 
@@ -60,12 +57,6 @@ function GetStartedScreen1() {
 
 
             <View style={styles.container}>
-                <FontAwesome
-                    style={{ textAlign: 'right', paddingLeft: 20, paddingTop: 20, position: 'absolute', zIndex: 1 }}
-                    name="arrow-left"
-                    color="white"
-                    size={30}
-                />
                 <Carousel
                     ref={carouselRef}
                     sliderWidth={screenWidth}
@@ -84,12 +75,12 @@ function GetStartedScreen1() {
                         <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>Reference site about Lorem Ipsum, giving information on as a ran its origins, as well as a random Lipsum generator.
                     </Text>
                     </View>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}
                         style={styles.button}
                     >
                         <Text style={{ color: 'white' }}>GET STARTED</Text>
                     </TouchableOpacity>
-                    <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', textAlign: 'center', marginLeft: 50, marginRight: 50 }}>Are you a Business Origination? Contact us at rak@rakbridges.com
+                    <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', textAlign: 'center', marginLeft: 50, marginRight: 50 }} >Are you a Business Origination? Contact us at rak@rakbridges.com
                     </Text>
                 </View>
 
@@ -129,7 +120,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        backgroundColor: "#1c4485",
+        backgroundColor: "#0273a3",
         padding: 15,
         margin: 20,
         borderRadius: 5

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, CheckBox } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, CheckBox, ScrollView } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
-function CreateAccount() {
+function CreateAccount(props) {
 
     const [isSelected, setSelection] = useState(false);
 
@@ -11,8 +11,9 @@ function CreateAccount() {
         <>
             <View style={styles.container}>
                 <View style={styles.setting}>
+                        <ScrollView>
                     <View style={styles.header}>
-                        <FontAwesome
+                        <FontAwesome onPress={() => props.navigation.navigate('Login')}
                             style={{ textAlign: 'right', paddingRight: 20, paddingTop: 20 }}
                             name="close"
                             color="black"
@@ -23,42 +24,44 @@ function CreateAccount() {
                         <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>Reference site about Lorem Ipsum, giving information on as a ran its origins, as well as a random Lipsum generator.
                     </Text>
                     </View>
-                    <View style={styles.settingtext}>
-                        <TextInput
-                            placeholder="Email Address"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            placeholder="Password   "
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            placeholder="Confirm Password"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <View style={styles.checkboxContainer}>
-                            <CheckBox
-                                value={isSelected}
-                                onValueChange={setSelection}
-                                style={styles.checkbox}
+                        <View style={styles.settingtext}>
+
+                            <TextInput
+                                placeholder="Email Address"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
                             />
-                            <Text style={styles.label}>Sign up for email to hear all the latest form RAK Bridges.</Text>
+                            <TextInput
+                                placeholder="Password   "
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
+                            />
+                            <TextInput
+                                placeholder="Confirm Password"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
+                            />
+                            <View style={styles.checkboxContainer}>
+                                <CheckBox
+                                    value={isSelected}
+                                    onValueChange={setSelection}
+                                    style={styles.checkbox}
+                                />
+                                <Text style={styles.label}>Sign up for email to hear all the latest form RAK Bridges.</Text>
+                            </View>
+                            <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>By creating an account, you agree to RAK Bridges<Text style={{ textDecorationLine: 'underline' }}> Privacy Policy </Text> and<Text style={{ textDecorationLine: 'underline' }}>Terms of Use.</Text></Text>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Login')}
+                                style={styles.button}
+                            >
+                                <Text style={{ color: 'white' }}>CREATE ACCOUNT</Text>
+                            </TouchableOpacity>
+                            <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }} onPress={() => props.navigation.navigate('Login')}>Already a member? <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}> Sign in.</Text>
+                            </Text>
                         </View>
-                    </View>
-                            <Text style={{color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center'}}>By creating an account, you agree to RAK Bridges<Text style={{ textDecorationLine: 'underline' }}> Privacy Policy </Text> and<Text style={{ textDecorationLine: 'underline' }}>Terms of Use.</Text></Text>
-                    <TouchableOpacity
-                        style={styles.button}
-                    >
-                        <Text style={{ color: 'white' }}>CREATE ACCOUNT</Text>
-                    </TouchableOpacity>
-                    <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>Already a member? <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}> Sign in.</Text>
-                    </Text>
+                    </ScrollView>
                 </View>
 
             </View>
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        backgroundColor: "#1c4485",
+        backgroundColor: "#0273a3",
         padding: 15,
         margin: 20,
         borderRadius: 5
@@ -103,10 +106,10 @@ const styles = StyleSheet.create({
     },
     checkbox: {
         alignSelf: "center",
-        marginLeft:20,
+        marginLeft: 20,
     },
     label: {
         // margin:2,
-        paddingRight:30
+        paddingRight: 30
     },
 });
