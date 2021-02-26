@@ -9,7 +9,7 @@ function Search(props) {
             <View style={styles.container}>
                 <ImageBackground source={require('../images/search1.jpg')} style={styles.image}>
                     <View style={styles.midcont}>
-                        <FontAwesome onPress={() => props.navigation.navigate('Settings')}
+                        <FontAwesome onPress={() => props.navigation.openDrawer()}
                             style={{ textAlign: 'left', padding: 20 }}
                             name="bars"
                             color="white"

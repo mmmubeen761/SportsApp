@@ -1,16 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ImageBackground } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 function EmailTwo(props) {
 
+    const [show,setShow] = useState({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+    const [hide,setHide] = useState({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center' })
+    
+    function shide(){
+        setHide({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',});
+        setShow({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+    }
+    function sshow(){
+        setShow({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',});
+        setHide({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+   }
+    
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.setting}>
                     <ImageBackground source={require('../images/email1.jpg')} style={styles.image}>
                         <View style={styles.midcont}>
-                            <FontAwesome
+                            <FontAwesome onPress={() => props.navigation.openDrawer()}
                                 style={{ textAlign: 'left', padding: 20 }}
                                 name="bars"
                                 color="white"
@@ -19,25 +31,21 @@ function EmailTwo(props) {
                             <Text style={{ color: 'white', fontSize: 25, fontWeight: 'bold', padding: 20, alignItems: 'center' }}>EMAIL
                                  </Text>
                             <Text>&nbsp; &nbsp; &nbsp; &nbsp; </Text>
-
                         </View>
                         <View style={styles.midcont}>
-                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15, padding: 20, alignItems: 'center' }}>Business/Organization
+                            <Text style={show} onPress={()=>shide()}>Business/Organization
                             </Text>
-                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15, padding: 20, alignItems: 'center', borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: '17%' }}>Athletes/Individual
+                            <Text style={hide} onPress={()=>sshow()}>Athletes/Individual
                             </Text>
                         </View>
                         <View style={styles.setting}>
-                            <View >
-                                <TextInput
-                                    placeholder="Search"
-                                    placeholderTextColor="white"
+                            <TouchableOpacity onPress={() => props.navigation.navigate('NewEmail')}>
+                                <Text
                                     style={styles.textInput2}
-                                    autoCapitalize="none"
-                                />
-                            </View>
-                            <View style={styles.textInput} onPress={() => props.navigation.navigate('NewEmail')}>
-                                <Text style={{ fontSize: 20 }} onPress={() => props.navigation.navigate('NewEmail')}>Name </Text><Text style={{ textAlign: 'right', fontSize: 20 }}> 10/1/2020</Text>
+                                >Search</Text>
+                            </TouchableOpacity>
+                            <View style={styles.textInput} >
+                                <Text style={{ fontSize: 20 }} >Name </Text><Text style={{ textAlign: 'right', fontSize: 20 }}> 10/1/2020</Text>
                             </View>
                             <View style={styles.textInput}>
                                 <Text style={{ fontSize: 20 }}>Name </Text><Text style={{ textAlign: 'right', fontSize: 20 }}> 20/1/2020</Text>
@@ -110,6 +118,8 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         borderRadius: 25,
-        backgroundColor: "#0273a3"
+        backgroundColor: "#0273a3",
+        paddingTop: 10,
+        paddingBottom: 10
     },
 });

@@ -8,15 +8,9 @@ import { Dimensions } from 'react-native';
 
 
 const ENTRIES1 = [
-    {
-        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonn.png?alt=media&token=a403ed09-695b-403d-8430-6cb257d5ab70',
-    },
-    {
-        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonboarding2.png?alt=media&token=2bcfad94-a752-47d5-96ca-8fe6f525270f',
-    },
-    {
-        illustration: 'https://firebasestorage.googleapis.com/v0/b/olx-clon.appspot.com/o/images%2Fonboarding3.png?alt=media&token=62e7a104-172a-4058-a417-b75642220797',
-    },
+    require('../images/onn.png'),
+    require('../images/onboarding2.png'),
+    require('../images/onboarding3.png'),
 ];
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -41,7 +35,7 @@ function GetStartedScreen1(props) {
             <View style={styles.item}>
                 <ParallaxImage
                     showSpinner={true}
-                    source={{ uri: item.illustration }}
+                    source={item}
                     containerStyle={styles.imageContainer}
                     style={styles.image}
                     parallaxFactor={0.8}
@@ -75,7 +69,7 @@ function GetStartedScreen1(props) {
                         <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>Reference site about Lorem Ipsum, giving information on as a ran its origins, as well as a random Lipsum generator.
                     </Text>
                     </View>
-                    <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Login')}
                         style={styles.button}
                     >
                         <Text style={{ color: 'white' }}>GET STARTED</Text>
@@ -101,7 +95,7 @@ export default GetStartedScreen1;
 
 const styles = StyleSheet.create({
 
-  
+
     container2: {
         flex: 1,
 
@@ -135,8 +129,8 @@ const styles = StyleSheet.create({
     label: {
         // margin:2,
         paddingRight: 30
-    },container: {
-       height:'60%'
+    }, container: {
+        height: '60%'
     },
     item: {
         width: screenWidth - 0,

@@ -26,13 +26,17 @@ const BottomNav = () => (
     <Tab.Navigator
         initialRouteName="Contacts"
         activeColor="#fff"
+        sceneAnimationEnabled={false}
+        activeColor="#0273a3"
+        inactiveColor="#95a5a6"
+        barStyle={{ backgroundColor: '#ffff' }}
     >
         <Tab.Screen
             name="Contacts"
             component={Contacts}
             options={{
                 tabBarLabel: 'Contacts',
-                tabBarColor: '#b00210',
+                tabBarColor: '#fff',
                 tabBarIcon: ({ color }) => (
                     <FontAwesome
                         name="user"
@@ -41,13 +45,14 @@ const BottomNav = () => (
                     />
                 ),
             }}
+
         />
         <Tab.Screen
             name="Send Email"
             component={EmailTwo}
             options={{
                 tabBarLabel: 'Send Email',
-                tabBarColor: '#b00210',
+                tabBarColor: '#fff',
                 tabBarIcon: ({ color }) => (
                     <FontAwesome
                         name="envelope"
@@ -62,7 +67,7 @@ const BottomNav = () => (
             component={Search}
             options={{
                 tabBarLabel: 'Search',
-                tabBarColor: '#b00210',
+                tabBarColor: '#fff',
                 tabBarIcon: ({ color }) => (
                     <FontAwesome
                         name="search"

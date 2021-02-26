@@ -30,7 +30,7 @@ function Login(props) {
                             </Text>
                                 <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', paddingTop: 20, textAlign: 'center' }}>By loging, you are agree to RAK  Bridges <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}> Privacy Policy</Text> and <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Terms of Use</Text>.
                             </Text>
-                                <TouchableOpacity onPress={() => props.navigation.navigate('BottomNav')}
+                                <TouchableOpacity onPress={() => props.navigation.navigate('Navigation')}
                                     style={styles.button}
                                 >
                                     <Text style={{ color: 'white' }}>LOG IN</Text>

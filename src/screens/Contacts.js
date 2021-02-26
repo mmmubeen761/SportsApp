@@ -1,16 +1,28 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, ImageBackground } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import React,{useState} from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ImageBackground } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 function Contacts(props) {
 
+    const [show,setShow] = useState({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+    const [hide,setHide] = useState({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center' })
+    
+    function shide(){
+        setHide({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',});
+        setShow({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+    }
+    function sshow(){
+        setShow({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',});
+        setHide({color: 'white', fontWeight: 'bold', fontSize: 15, padding: 15, alignItems: 'center',borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61 })
+   }
+    
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.setting}>
                     <ImageBackground source={require('../images/contact1.jpg')} style={styles.image}>
                         <View style={styles.midcont}>
-                            <FontAwesome
+                            <FontAwesome  onPress={() => props.navigation.openDrawer()}
                                 style={{ textAlign: 'left', padding: 20 }}
                                 name="bars"
                                 color="white"
@@ -21,20 +33,21 @@ function Contacts(props) {
                             <Text>&nbsp; &nbsp; &nbsp; &nbsp; </Text>
 
                         </View>
+                        {/* borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: 61  */}
+                        {/* onPress={() => props.navigation.navigate('EmailTwo')} */}
                         <View style={styles.midcont}>
-                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15, padding: 20, alignItems: 'center', borderBottomWidth: 3, borderBottomColor: 'white', marginBottom: '17%' }}>Business/Organization
+                            <Text style={show} onPress={()=>shide()}>Business/Organization
                             </Text>
-                            <Text onPress={() => props.navigation.navigate('Contacts')} style={{ color: 'white', fontWeight: 'bold', fontSize: 15, padding: 20, alignItems: 'center' }}>Athletes/Individual
+                            <Text  style={hide} onPress={()=>sshow()}>Athletes/Individual
                             </Text>
                         </View>
                         <View style={styles.setting}>
-                            {/* <ScrollView> */}
 
                                 <FontAwesome onPress={() => props.navigation.navigate('AddContact')}
                                     style={styles.textInput2}
                                     name="plus"
                                     color="white"
-                                    size={30}
+                                    size={25}
                                 />
                                 <View style={styles.textInput}>
                                     <Text style={{ fontSize: 20 }} onPress={() => props.navigation.navigate('Contact')}>Name </Text><Text style={{ textAlign: 'right', fontSize: 20 }}> 10/1/2020</Text>
@@ -58,7 +71,6 @@ function Contacts(props) {
                                     <Text style={{ fontSize: 20 }}>Name </Text><Text style={{ textAlign: 'right', fontSize: 20 }}> 30/1/2020</Text>
                                 </View>
 
-                            {/* </ScrollView> */}
                         </View>
                     </ImageBackground>
                 </View>
@@ -84,18 +96,16 @@ const styles = StyleSheet.create({
     },
     setting: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     textInput: {
         color: 'black',
         paddingLeft: 10,
         paddingRight: 10,
-        // margin: 25,
         marginTop: 15,
         marginBottom: 15,
         borderBottomColor: 'black',
         borderBottomWidth: 1,
-        // flex:1,
         flexDirection: 'row',
         justifyContent: 'space-between'
     }, image: {
@@ -106,9 +116,12 @@ const styles = StyleSheet.create({
     }, textInput2: {
         borderColor: 'white',
         // borderWidth: 1,
-        padding: 15,
-        borderRadius: 80,
+        paddingLeft: 18,
+        borderRadius: 30,
         backgroundColor: "#0273a3",
-        alignSelf: 'center'
+        alignSelf: 'center',
+        paddingRight:18,
+        paddingTop:15,
+        paddingBottom:15
     },
 });

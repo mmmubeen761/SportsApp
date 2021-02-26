@@ -7,11 +7,10 @@ import { Slider } from 'react-native';
 
 function NewEmail(props) {
     // const UselessTextInputMultiline = () => {
-        const [value, onChangeText] = React.useState('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a ');
+    const [value, onChangeText] = React.useState('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a ');
     // }
     return (
         <>
-            {/* <ScrollView> */}
 
             <View style={styles.container}>
                 <View style={styles.setting}>
@@ -25,55 +24,56 @@ function NewEmail(props) {
                         <Text style={{ color: 'black', fontSize: 25, alignSelf: 'center', fontWeight: 'bold' }}>NEW EMAIL
                              </Text>
                     </View>
-                    <View style={styles.settingtext}>
-                        <TextInput
-                            placeholder="To:"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            placeholder="Cc/Bcc:"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            placeholder="From:"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <TextInput
-                            placeholder="Subject:"
-                            placeholderTextColor="black"
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                        />
-                        <View
-                            style={{
-                                backgroundColor: value,
-                                borderColor: '#000000',
-                                borderWidth: 1,
-                                margin:10
-                            }}>
+                    <ScrollView>
+                        <View style={styles.settingtext}>
                             <TextInput
-                                multiline
-                                numberOfLines={8}
-                                onChangeText={text => onChangeText(text)}
-                                value={value}
+                                placeholder="To:"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
                             />
+                            <TextInput
+                                placeholder="Cc/Bcc:"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
+                            />
+                            <TextInput
+                                placeholder="From:"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
+                            />
+                            <TextInput
+                                placeholder="Subject:"
+                                placeholderTextColor="black"
+                                style={styles.textInput}
+                                autoCapitalize="none"
+                            />
+                            <View
+                                style={{
+                                    backgroundColor: value,
+                                    borderColor: '#000000',
+                                    borderWidth: 1,
+                                    margin: 10
+                                }}>
+                                <TextInput
+                                    multiline
+                                    numberOfLines={8}
+                                    onChangeText={text => onChangeText(text)}
+                                    value={value}
+                                />
+                            </View>
                         </View>
-                    </View>
-                    <TouchableOpacity
-                        style={styles.button}
-                    >
-                        <Text style={{ color: 'white' }}>SEND</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                        >
+                            <Text style={{ color: 'white' }}>SEND</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
                 </View>
-
             </View>
-            {/* </ScrollView> */}
+
         </>
     );
 }

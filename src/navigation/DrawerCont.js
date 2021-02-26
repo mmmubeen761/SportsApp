@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch, Linking } from 'react-native-paper';
+import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableOpacity, Switch, Linking } from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Settings from '../screens/Settings'
 
 
 export function DrawerContent(props) {
@@ -11,59 +13,37 @@ export function DrawerContent(props) {
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
-                        <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                            <Avatar.Image
-                                source={{ uri: 'https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66df14d32.3051789815374598219884.jpg' }}
-                                size={60}
-                            />
-                        </View>
+                            <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                <Avatar.Image
+                                    style={{ flex: 1, justifyContent: 'center', alignSelf: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: 50 }}
+                                    source={{ uri: 'https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66df14d32.3051789815374598219884.jpg' }}
+                                    size={80}
+                                />
+                            </View>
+                        <Text style={{ flex: 1, textAlign: 'center' }}>Edit</Text>
                     </View>
 
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
-                          icon={({ color, size }) => (
-                                <Icon
-                                    name="home-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
-                            label="BottomNav"
+                            label="Dashboard"
                             onPress={() => { props.navigation.navigate('BottomNav') }}
+                        />
+                        <DrawerItem
+                            label="Settings"
+                            onPress={() => { props.navigation.navigate('Settings') }}
                         />
 
                         <DrawerItem
-                          icon={({ color, size }) => (
-                                <Icon
-                                    name="home-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
                             label="Privacy Policy"
                             onPress={() => { props.navigation.navigate('Privacy Policy') }}
                         />
                         <DrawerItem
-                          icon={({ color, size }) => (
-                                <Icon
-                                    name="home-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
                             label="Contact Us"
                             onPress={() => { props.navigation.navigate('Contact Us') }}
                         />
                         <DrawerItem
-                          icon={({ color, size }) => (
-                                <Icon
-                                    name="home-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
                             label="Logout"
-                            onPress={() => { props.navigation.navigate('Logout') }}
+                            onPress={() => { props.navigation.navigate('Login') }}
                         />
                     </Drawer.Section>
                 </View>
